@@ -1,8 +1,9 @@
 import requests
 
-def check_server_status():
-    a = requests.get(url)
-    if a = 200:
-        return True
-    else:
+
+def check_server_status(ip: str):
+    try:
+        if requests.get(ip).status_code == 200:
+            return True
+    except Exception:
         return False
